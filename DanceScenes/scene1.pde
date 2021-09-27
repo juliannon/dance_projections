@@ -9,6 +9,8 @@
 // snow particles
 // wind (acceleration)
 // piles of snow
+
+
 void scene1()
 {
   background(84, 109, 125);
@@ -18,17 +20,31 @@ void scene1()
 }
 
 
-class Particle {
+class Particle 
+  {
   PVector position;
   PVector velocity;
   PVector acceleration;
   
   color c;
+  boolean alive = true;
+  int r = 20;
   
-  Particle (PVector position, PVector velocity, int c) {
+  Particle (PVector position, PVector velocity, int c) 
+  {
     this.c = c;
     this.position = position.copy();
     this.velocity = velocity.copy();
+  }
+  
+  void display() 
+  {
+    ellipse(position.x, position.y, r, r);
+    position.add(velocity);
+    velocity.add(acceleration);
+    
+    if (position.y > height) 
+      alive = false;
   }
   
 }
