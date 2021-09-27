@@ -1,8 +1,13 @@
+ArrayList<Particle> particles;
 int state = 0;
 
 void setup()
 {
   fullScreen();
+  noStroke();
+  
+  //create array list for particles
+  particles = new ArrayList<Particle>();
   
 }
 

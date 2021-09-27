@@ -15,6 +15,16 @@ void scene1()
 {
   background(84, 109, 125);
   
+  //declare variables
+  PVector position = new PVector(random(0, width), 0);
+  PVector velocity = new PVector(random(-3, 0), random(-0.3, 0.3));
+  color c = color(random(70, 215), random(110, 250), random(200, 250));
+  //add new to arraylist
+  particles.add(new Particle(position, velocity, c));
+  
+  //display particles
+  for(Particle p : particles)
+    p.display();
   
   
 }
@@ -39,6 +49,7 @@ class Particle
   
   void display() 
   {
+    PVector acceleration = new PVector(0, 1);
     ellipse(position.x, position.y, r, r);
     position.add(velocity);
     velocity.add(acceleration);
