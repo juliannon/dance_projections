@@ -15,3 +15,7 @@ void draw()
   else if (state == 2)
     scene2();
 }
+
+class particle {
+  
+}
