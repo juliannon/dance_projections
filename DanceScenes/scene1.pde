@@ -21,7 +21,7 @@ void scene1()
   color c = color(random(70, 215), random(110, 250), random(200, 250));
   //add new to arraylist
   particles.add(new Particle(position, velocity, c));
-  
+
   //display particles
   for(Particle p : particles)
     p.display();
@@ -38,18 +38,18 @@ class Particle
   
   color c;
   boolean alive = true;
-  int r = 20;
+  int r = 10;
   
-  Particle (PVector position, PVector velocity, int c) 
+  Particle (PVector position, PVector velocity, color c) 
   {
     this.c = c;
     this.position = position.copy();
     this.velocity = velocity.copy();
+    this.acceleration = new PVector(0, 1);
   }
   
   void display() 
   {
-    PVector acceleration = new PVector(0, 1);
     ellipse(position.x, position.y, r, r);
     position.add(velocity);
     velocity.add(acceleration);

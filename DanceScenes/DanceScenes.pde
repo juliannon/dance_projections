@@ -28,7 +28,3 @@ void keyPressed()
   if (key == ' ')
     state ++;
 }
-
-class particle {
-  
-}
