@@ -10,6 +10,7 @@
 // wind (acceleration)
 // piles of snow
 
+int count = 0;
 
 void scene1()
 {
@@ -21,12 +22,23 @@ void scene1()
   PVector position = new PVector(random(0, width), 0);
   PVector velocity = new PVector(random(-0.3, 0.3), random(0, 3));
   color c = color(random(50, 60), 15, 100);
+
   //add new to arraylist
   
   particles.add(new Particle(position, velocity, c));
   
 
   
+ 
+  //generate snow for ground, draws 100 circles to represent
+  if (count < 100)
+    for(int i=0; i<100; i++)
+     {
+      float snowR = random(80, 200);
+      PVector snowPosition = new PVector(random(0, width), random(19*height/20, height));
+      snowOnGround.add(new Snow(snowPosition, snowR));
+      count ++;
+     }
 
   //display particles
   for(Particle p : particles) 
@@ -42,6 +54,8 @@ void scene1()
     
  
   
+  for(Snow s : snowOnGround)
+    s.showGround();
   
 }
 
@@ -62,7 +76,8 @@ class Particle
     this.c = c;
     this.position = position.copy();
     this.velocity = velocity.copy();
-    this.acceleration = new PVector(0, .2);
+
+    this.acceleration = new PVector(0, .1);
   }
   
   void display() 

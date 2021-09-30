@@ -1,4 +1,5 @@
 ArrayList<Particle> particles;
+ArrayList<Snow> snowOnGround;
 int state = 0;
 
 void setup()
@@ -8,6 +9,7 @@ void setup()
   
   //create array list for particles
   particles = new ArrayList<Particle>();
+  snowOnGround = new ArrayList<Snow>();
   
 }
 
