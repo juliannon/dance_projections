@@ -54,7 +54,8 @@ class Particle
   
   color c;
   boolean alive = true;
-  int r = 10;
+
+  float r = width/307;
   
   Particle (PVector position, PVector velocity, color c) 
   {
@@ -76,3 +77,11 @@ class Particle
   }
   
 }
+
+/*void groundSnow() {
+  
+  for (int i = 0; i < 20; i++) {
+    ellipse(random(width), height, random(50, 100), random(50, 100));
+  }
+}
+*/
