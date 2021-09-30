@@ -15,7 +15,7 @@ int count = 0;
 void scene1()
 {
   colorMode(RGB, 255);
-  background(84, 109, 125);
+  background(0);
   colorMode(HSB, 100);
   
   //declare variables
@@ -24,14 +24,13 @@ void scene1()
   color c = color(random(50, 60), 15, 100);
 
   //add new to arraylist
-  
   particles.add(new Particle(position, velocity, c));
   
 
   
  
   //generate snow for ground, draws 100 circles to represent
-  if (count < 100)
+ /* if (count < 100)
     for(int i=0; i<100; i++)
      {
       colorMode(RGB, 255);
@@ -40,7 +39,7 @@ void scene1()
       PVector snowPosition = new PVector(random(0, width), random(19*height/20, height));
       snowOnGround.add(new Snow(snowPosition, snowR));
       count ++;
-     }
+     } */
 
   //display particles
   for(Particle p : particles) 

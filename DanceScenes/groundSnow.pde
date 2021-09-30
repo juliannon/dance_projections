@@ -12,7 +12,6 @@ class Snow
   void showGround()
   {
     colorMode(RGB, 255);
-
     fill(232, 246, 250);
     ellipse(snowPosition.x, snowPosition.y, snowR, snowR);
     
