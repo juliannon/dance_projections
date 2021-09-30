@@ -34,6 +34,8 @@ void scene1()
   if (count < 100)
     for(int i=0; i<100; i++)
      {
+      colorMode(RGB, 255);
+
       float snowR = random(80, 200);
       PVector snowPosition = new PVector(random(0, width), random(19*height/20, height));
       snowOnGround.add(new Snow(snowPosition, snowR));
@@ -69,7 +71,7 @@ class Particle
   color c;
   boolean alive = true;
 
-  float r = width/307;
+  float r = width/150;
   
   Particle (PVector position, PVector velocity, color c) 
   {
