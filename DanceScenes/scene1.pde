@@ -18,13 +18,20 @@ void scene1()
   background(0);
   colorMode(HSB, 100);
   
-  //declare variables
-  PVector position = new PVector(random(0, width), 0);
-  PVector velocity = new PVector(random(-0.3, 0.3), random(0, 3));
-  color c = color(random(50, 60), 15, 100);
+  //add sound levels and other variables
+
+ 
 
   //add new to arraylist
-  particles.add(new Particle(position, velocity, c));
+  //generate more than one every frame
+  for(int i=0; i<2; i++)
+  {
+    //declare variables for particles
+    PVector position = new PVector(random(0, width), 0);
+    PVector velocity = new PVector(random(-0.3, 0.3), random(0, 3));
+    color c = color(random(50, 60), 15, 100);
+    particles.add(new Particle(position, velocity, c));
+  }
   
 
   
@@ -65,7 +72,9 @@ class Particle
   {
   PVector position;
   PVector velocity;
-  PVector acceleration;
+//  PVector acceleration;
+  float level = amp.analyze();
+  PVector acceleration = new PVector(0.15*level, 0.1);
   
   color c;
   boolean alive = true;
@@ -78,7 +87,7 @@ class Particle
     this.position = position.copy();
     this.velocity = velocity.copy();
 
-    this.acceleration = new PVector(0, .1);
+   // this.acceleration = new PVector(0, .1);
   }
   
   void display() 
