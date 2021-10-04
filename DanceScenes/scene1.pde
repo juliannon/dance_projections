@@ -86,6 +86,7 @@ class Particle
   color c;
   boolean alive = true;
   float size = random(125, 250);
+  float transparency = random(75, 100);
   float r = width/size;
   
   Particle (PVector position, PVector velocity, color c) 
@@ -99,7 +100,7 @@ class Particle
   
   void display() 
   {
-    fill(c);
+    fill(c, transparency);
     ellipse(position.x, position.y, r, r);
     position.add(velocity);
     velocity.add(acceleration);
