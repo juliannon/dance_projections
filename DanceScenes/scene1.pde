@@ -74,12 +74,13 @@ class Particle
   PVector velocity;
 //  PVector acceleration;
   float level = amp.analyze();
+  
   PVector acceleration = new PVector(0.15*level, 0.1);
   
   color c;
   boolean alive = true;
-
-  float r = width/150;
+  float size = random(125, 250);
+  float r = width/size;
   
   Particle (PVector position, PVector velocity, color c) 
   {
