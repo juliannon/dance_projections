@@ -81,7 +81,7 @@ class Particle
   //PVector acceleration;
   float level = amp.analyze();
 
-  PVector acceleration = new PVector(direction*0.15*level, 0.1);
+  PVector acceleration = new PVector(direction*0.2*level, 0.1);
   
   color c;
   boolean alive = true;
