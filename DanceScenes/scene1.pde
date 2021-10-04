@@ -25,7 +25,7 @@ void scene1()
 
   //add new to arraylist
   //generate more than one every frame
-  for(int i=0; i<2; i++)
+  for(int i=0; i<3; i++)
   {
     //declare variables for particles
     PVector position = new PVector(random(0, width), 0);
