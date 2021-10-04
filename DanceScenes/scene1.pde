@@ -12,7 +12,7 @@
 
 int count = 0;
 float choice;
-int direction;
+//int direction;
 void scene1()
 {
   colorMode(RGB, 255);
@@ -48,11 +48,14 @@ void scene1()
       snowOnGround.add(new Snow(snowPosition, snowR));
       count ++;
      } */
+     
+     /*
   choice = random(0,1);
   if(choice > 0.5)
     direction = -1;
    else 
      direction = 1;
+     */
      
   //display particles
   for(Particle p : particles) 
@@ -78,10 +81,17 @@ class Particle
   {
   PVector position;
   PVector velocity;
+  
+  PVector difference;
+  float mag;
+  PVector force;
+
   //PVector acceleration;
   float level = amp.analyze();
+  
 
-  PVector acceleration = new PVector(direction*0.15*level, 0.1);
+  //PVector acceleration = new PVector(direction*0.15*level, 0.1);
+  //PVector accelerration;
   
   color c;
   boolean alive = true;
@@ -95,15 +105,24 @@ class Particle
     this.position = position.copy();
     this.velocity = velocity.copy();
 
+    
+
    // this.acceleration = new PVector(0, .1);
   }
   
   void display() 
   {
+    difference = new PVector((position.x-mouseX), (position.y-mouseY));
+    mag = difference.mag();
+    force = difference.mult(1/mag/mag/mag);
+    force.mult(1000);
+    
     fill(c, transparency);
     ellipse(position.x, position.y, r, r);
     position.add(velocity);
-    velocity.add(acceleration);
+    velocity.add(force);
+    
+    
     
     if (position.y > height) 
       alive = false;
