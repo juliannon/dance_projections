@@ -48,11 +48,12 @@ void scene1()
       snowOnGround.add(new Snow(snowPosition, snowR));
       count ++;
      } */
-  choice = random(0,1);
-  if(choice > 0.5)
-    direction = -1;
-   else 
-     direction = 1;
+     
+    choice = random(0,1);
+    if(choice > 0.5)
+      direction = -1;
+    else 
+      direction = 1;
      
   //display particles
   for(Particle p : particles) 
