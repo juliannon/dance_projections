@@ -11,7 +11,8 @@
 // piles of snow
 
 int count = 0;
-
+float choice;
+int direction;
 void scene1()
 {
   colorMode(RGB, 255);
@@ -47,7 +48,12 @@ void scene1()
       snowOnGround.add(new Snow(snowPosition, snowR));
       count ++;
      } */
-
+  choice = random(0,1);
+  if(choice > 0.5)
+    direction = -1;
+   else 
+     direction = 1;
+     
   //display particles
   for(Particle p : particles) 
   {
@@ -72,9 +78,9 @@ class Particle
   {
   PVector position;
   PVector velocity;
-//  PVector acceleration;
+  //PVector acceleration;
   float level = amp.analyze();
-  PVector acceleration = new PVector(0.15*level, 0.1);
+  PVector acceleration = new PVector(direction*0.15*level, 0.1);
   
   color c;
   boolean alive = true;
