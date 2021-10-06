@@ -49,6 +49,7 @@ void scene1()
       count ++;
      } */
      
+
      /*
   choice = random(0,1);
   if(choice > 0.5)
@@ -56,6 +57,7 @@ void scene1()
    else 
      direction = 1;
      */
+
      
   //display particles
   for(Particle p : particles) 
@@ -92,6 +94,7 @@ class Particle
 
   //PVector acceleration = new PVector(direction*0.15*level, 0.1);
   //PVector accelerration;
+
   
   color c;
   boolean alive = true;
