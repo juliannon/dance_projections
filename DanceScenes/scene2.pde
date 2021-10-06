@@ -12,6 +12,7 @@ void scene2setup()
     PVector position = new PVector(random(-10, width/100), height*9/10);
     PVector velocity = new PVector(0, random(-10,-3));
     PImage img = loadImage("image"+i + ".png");
+    img.resize(700, 700);
     images.add(new Image(position, velocity, img));
   }
  /* images.add(new Image(position, velocity, image1));
