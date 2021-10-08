@@ -93,7 +93,7 @@ class Particle
   
   // size of wind based on volume
   float level = amp.analyze();
-  PVector acceleration = new PVector(direction*0.15*level, 0.1);
+  //PVector acceleration = new PVector(direction*0.15*level, 0.1);
 
   Particle (PVector position, PVector velocity, color c) 
   {
@@ -114,7 +114,7 @@ class Particle
     fill(c, transparency);
     ellipse(position.x, position.y, r, r);
     position.add(velocity);
-    velocity.add(acceleration);
+   // velocity.add(acceleration);
     
     if (position.y > height) 
       alive = false;
