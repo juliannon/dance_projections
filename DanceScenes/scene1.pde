@@ -114,7 +114,7 @@ class Particle
     fill(c, transparency);
     ellipse(position.x, position.y, r, r);
     position.add(velocity);
-    //velocity.add(acceleration);
+    velocity.add(acceleration);
     
     if (position.y > height) 
       alive = false;
