@@ -3,7 +3,7 @@
 class Wind
 {
   PVector windPosition;
-  
+  float level = amp.analyze();
   Wind(float windX, float windY) {
     windPosition = new PVector(windX, windY);
   }
@@ -15,7 +15,7 @@ class Wind
                                       p.position.y - windPosition.y);
     float mag = difference.mag();
     PVector force = difference.mult(1/mag/mag/mag);
-    force.mult(1000);
+    force.mult(800*level);
     
     p.push(force);
     }
