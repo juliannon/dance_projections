@@ -10,6 +10,7 @@
 // wind (acceleration)
 // piles of snow
 Wind mouse;
+Wind gravity;
 
 int count = 0;
 float choice;
@@ -47,6 +48,7 @@ void scene1()
   }
   mouse = new Wind(mouseX, mouseY);
   mouse.display(particles);
+  
   
  
   //generate snow for ground, draws 100 circles to represent
@@ -93,7 +95,8 @@ class Particle
   
   // size of wind based on volume
   float level = amp.analyze();
-  PVector acceleration = new PVector(direction*0.15*level, 0.1);
+  //PVector acceleration = new PVector(direction*0.15*level, 0.1);
+  PVector gravity = new PVector(0, 0.01);
 
   Particle (PVector position, PVector velocity, color c) 
   {
@@ -108,13 +111,13 @@ class Particle
   {
     //difference = new PVector((position.x-mouseX), (position.y-mouseY));
     //mag = difference.mag();
-   // force = difference.mult(1/mag/mag/mag);
+    //force = difference.mult(1/mag/mag/mag);
     //force.mult(1000);
-    
+        
     fill(c, transparency);
     ellipse(position.x, position.y, r, r);
     position.add(velocity);
-    //velocity.add(acceleration);
+    velocity.add(gravity);
     
     if (position.y > height) 
       alive = false;
