@@ -9,11 +9,10 @@
 // snow particles
 // wind (acceleration)
 // piles of snow
-Wind mouse;
 
 int count = 0;
 float choice;
-int direction;
+//int direction;
 void scene1()
 {
   colorMode(RGB, 255);
@@ -22,6 +21,7 @@ void scene1()
   
   //add sound levels and other variables
 
+ 
 
   //add new to arraylist
   //generate more than one every frame
@@ -34,19 +34,7 @@ void scene1()
     particles.add(new Particle(position, velocity, c));
   }
   
-  //display particles
-  for(Particle p : particles) 
-  {
-    p.display();
-  }
-  //remove off screne particles
-  for (int i = 0; i < particles.size(); i++) 
-  {
-    if (particles.get(i).alive == false) 
-        particles.remove(i);
-  }
-  mouse = new Wind(mouseX, mouseY);
-  mouse.display(particles);
+
   
  
   //generate snow for ground, draws 100 circles to represent
@@ -61,14 +49,28 @@ void scene1()
       count ++;
      } */
      
-
-// decide x direction acceleration (left or right)
+     /*
   choice = random(0,1);
   if(choice > 0.5)
     direction = -1;
    else 
      direction = 1;
+     */
+     
+  //display particles
+  for(Particle p : particles) 
+  {
+    p.display();
     
+  }
+  
+  for (int i = 0; i < particles.size(); i++) {
+    if (particles.get(i).alive == false) 
+        particles.remove(i);
+  }
+    
+ 
+  
   for(Snow s : snowOnGround)
     s.showGround();
   
@@ -80,48 +82,51 @@ class Particle
   PVector position;
   PVector velocity;
   
+  PVector difference;
+  float mag;
+  PVector force;
+
+  //PVector acceleration;
+  float level = amp.analyze();
+  
+
+  //PVector acceleration = new PVector(direction*0.15*level, 0.1);
+  //PVector accelerration;
+
+  
   color c;
   boolean alive = true;
   float size = random(125, 250);
   float transparency = random(75, 100);
   float r = width/size;
   
-  // for wind
-  //PVector difference;
-  //float mag;
-  //PVector force;
-  
-  // size of wind based on volume
-  float level = amp.analyze();
-  PVector acceleration = new PVector(direction*0.15*level, 0.1);
-
   Particle (PVector position, PVector velocity, color c) 
   {
     this.c = c;
     this.position = position.copy();
     this.velocity = velocity.copy();
 
+    
+
    // this.acceleration = new PVector(0, .1);
   }
   
   void display() 
   {
-    //difference = new PVector((position.x-mouseX), (position.y-mouseY));
-    //mag = difference.mag();
-   // force = difference.mult(1/mag/mag/mag);
-    //force.mult(1000);
+    difference = new PVector((position.x-mouseX), (position.y-mouseY));
+    mag = difference.mag();
+    force = difference.mult(1/mag/mag/mag);
+    force.mult(1000);
     
     fill(c, transparency);
     ellipse(position.x, position.y, r, r);
     position.add(velocity);
-    //velocity.add(acceleration);
+    velocity.add(force);
+    
+    
     
     if (position.y > height) 
       alive = false;
-  }
-  
-  void push(PVector force) {
-    velocity.add(force);
   }
   
 }
