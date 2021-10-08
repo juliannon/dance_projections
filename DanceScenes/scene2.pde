@@ -9,9 +9,9 @@ void scene2setup()
   //creaate random position, random velocity, create new image
   for (int i = 1; i < 2; i++)
   {
-    PVector position = new PVector(random(-10, width/100), height*9/10);
-    PVector velocity = new PVector(0, random(-10,-3));
-    PImage img = loadImage("image"+i + ".png");
+    PVector position = new PVector(random(-10, width/20), height*9/10);
+    PVector velocity = new PVector(0, random(-15,-5));
+    PImage img = loadImage("image"+i + "_25.png");
     img.resize(700, 700);
     images.add(new Image(position, velocity, img));
   }
@@ -47,6 +47,7 @@ class Image
   }
   void displayImage()
   {
+    //push matrix pop matrix and translate, translate and the whole box of text will move
     image(img, position.x, position.y);
     position.add(velocity);
   }
