@@ -9,6 +9,9 @@ ArrayList<Particle> particles;
 ArrayList<Snow> snowOnGround;
 int state = 0;
 
+ArrayList<Image> images;
+boolean addMore = true;
+
 void setup()
 {
   fullScreen();
@@ -29,6 +32,8 @@ void setup()
   particles = new ArrayList<Particle>();
   snowOnGround = new ArrayList<Snow>();
   //mouse = new Wind(mouseX, mouseY);
+
+  images = new ArrayList<Image>();
   
 }
 
@@ -39,7 +44,7 @@ void draw()
   if (state == 0)
     scene1();
   else if (state == 1)
-    scene2();
+    drawScene2();
 /*   else if (state == 3)
      state = 0; */
 }
@@ -47,7 +52,10 @@ void draw()
 void keyPressed()
 {
   if (key == ' ' && state == 0)
+  {
+    scene2setup();
     state ++;
+  }
   else if (key == ' ' && state ==1)
     state --;
     
