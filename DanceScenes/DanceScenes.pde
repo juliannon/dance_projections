@@ -45,6 +45,7 @@ void draw()
     scene1();
   else if (state == 1)
     drawScene2();
+    
 /*   else if (state == 3)
      state = 0; */
 }

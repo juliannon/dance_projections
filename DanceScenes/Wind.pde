@@ -7,6 +7,8 @@ class Wind
   Wind(float windX, float windY) {
     windPosition = new PVector(windX, windY);
   }
+  //if mouse is on left side, all particles get negative acceleration in x direction
+  //if mouse is on  right side, all particles get positive acceleration in  x direction
   
   void display(ArrayList<Particle> particles) {
     for (Particle p : particles) {

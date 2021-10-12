@@ -86,6 +86,7 @@ class Particle
   boolean alive = true;
   float size = random(125, 250);
   float transparency = random(75, 100);
+   
   float r = width/size;
 
   // for wind

@@ -4,7 +4,7 @@
 void scene2setup()
 {
   colorMode(RGB, 255);
-  background(0);
+ // background(0);
   colorMode(HSB, 100);
   //creaate random position, random velocity, create new image
   for (int i = 1; i < 6; i++)
@@ -32,6 +32,7 @@ void drawScene2()
   fill(100, 0, 100);
   textSize(30);
   text(frameCount, 50, 50);
+  
 }
 
 class Image
