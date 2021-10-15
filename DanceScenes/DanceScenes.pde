@@ -16,6 +16,7 @@ void setup()
 {
   fullScreen();
   noStroke();
+  noCursor();
   
   //sound file generation
  /* file = new SoundFile(this, "dealWithChaos.mp3");

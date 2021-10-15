@@ -19,19 +19,19 @@ void scene1()
 {
   colorMode(RGB, 255);
   background(0);
-  colorMode(HSB, 100);
+  colorMode(HSB, 360, 100, 100);
 
   //add sound levels and other variables
 
 
   //add new to arraylist
   //generate more than one every frame
-  for(int i=0; i<3; i++)
+  for(int i=0; i<7; i++)
   {
     //declare variables for particles
-    PVector position = new PVector(random(0, width), 0);
+    PVector position = new PVector(random(0-width/2, 1.5*width), 0);
     PVector velocity = new PVector(random(-0.3, 0.3), random(0, 3));
-    color c = color(random(50, 60), 15, 100);
+    color c = color(random(190, 208), random(15,35), 100);
     particles.add(new Particle(position, velocity, c));
   }
 
@@ -46,7 +46,7 @@ void scene1()
     if (particles.get(i).alive == false)
         particles.remove(i);
   }
-  mouse = new Wind(mouseX, mouseY);
+  mouse = new Wind(mouseX);
   mouse.display(particles);
 
 
@@ -97,7 +97,7 @@ class Particle
   // size of wind based on volume
   float level = amp.analyze();
   //PVector acceleration = new PVector(direction*0.15*level, 0.1);
-  PVector gravity = new PVector(0, 0.01);
+  PVector gravity = new PVector(0, 0.05);
 
   Particle (PVector position, PVector velocity, color c)
   {
@@ -115,7 +115,7 @@ class Particle
     //force = difference.mult(1/mag/mag/mag);
     //force.mult(1000);
 
-    fill(c, transparency);
+    fill(c);
     ellipse(position.x, position.y, r, r);
     position.add(velocity);
     velocity.add(gravity);

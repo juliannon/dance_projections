@@ -28,11 +28,11 @@ void drawScene2()
   background(0);
   for (Image i : images)
     i.displayImage();
-  
+  /* include frameCount on screen
   fill(100, 0, 100);
   textSize(30);
   text(frameCount, 50, 50);
-  
+  */
 }
 
 class Image
