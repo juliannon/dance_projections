@@ -46,6 +46,8 @@ void draw()
     scene1();
   else if (state == 1)
     drawScene2();
+   else if (state ==2)
+     scene0();
     
 /*   else if (state == 3)
      state = 0; */
@@ -53,12 +55,14 @@ void draw()
 
 void keyPressed()
 {
-  if (key == ' ' && state == 0)
+  if (key == '2')
   {
     scene2setup();
-    state ++;
+    state = 1;
   }
-  else if (key == ' ' && state ==1)
-    state --;
+  else if (key == '1')
+    state = 0;
+  else if(key == '3')
+    state = 2;
     
 }
