@@ -9,7 +9,7 @@ void scene2setup()
   //creaate random position, random velocity, create new image
   for (int i = 1; i < 6; i++)
   {
-    PVector position = new PVector(random(0, width/2), height*9/10);
+    PVector position = new PVector(random(0, 4*width/7), height*9/10);
     PVector velocity = new PVector(0, random(-15,-5));
     PImage img = loadImage("image"+i + "_25.png");
     img.resize(700, 700);

@@ -97,7 +97,7 @@ class Particle
   // size of wind based on volume
   float level = amp.analyze();
   //PVector acceleration = new PVector(direction*0.15*level, 0.1);
-  PVector gravity = new PVector(0, 0.05);
+  PVector gravity = new PVector(0, 0.005);
 
   Particle (PVector position, PVector velocity, color c)
   {
