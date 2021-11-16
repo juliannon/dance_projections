@@ -60,7 +60,10 @@ void keyPressed()
   if (key == '2')
     state = 1;
   else if (key == '1')
+  {
+    scene2setup();
     state = 0;
+  }
   else if(key == '3')
     state = 2;
     
