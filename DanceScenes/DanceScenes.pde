@@ -35,7 +35,7 @@ void setup()
   //mouse = new Wind(mouseX, mouseY);
 
   images = new ArrayList<Image>();
-  
+  scene2setup();
 }
 
 void draw()
@@ -44,8 +44,10 @@ void draw()
     scene0(); */
   if (state == 0)
     scene1();
-  else if (state == 1)
+  else if (state == 1) {
+    scene1();
     drawScene2();
+  }
    else if (state ==2)
      scene0();
     
@@ -56,10 +58,7 @@ void draw()
 void keyPressed()
 {
   if (key == '2')
-  {
-    scene2setup();
     state = 1;
-  }
   else if (key == '1')
     state = 0;
   else if(key == '3')

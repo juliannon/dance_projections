@@ -1,10 +1,9 @@
 //stuff with radio sound
 //scrolling text and formulas
 
-void scene2setup()
+/*void scene2setup()
 {
   colorMode(RGB, 255);
- // background(0);
   colorMode(HSB, 100);
   //creaate random position, random velocity, create new image
   for (int i = 1; i < 6; i++)
@@ -15,24 +14,18 @@ void scene2setup()
     img.resize(700, 700);
     images.add(new Image(position, velocity, img));
   }
- /* images.add(new Image(position, velocity, image1));
-  images.add(new Image(position, velocity, image2));
-  images.add(new Image(position, velocity, image3));
-  images.add(new Image(position, velocity, image4));
-  images.add(new Image(position, velocity, image5));*/
 
 }
-
+*/
 void drawScene2()
 {
-  background(0);
+  //background(0);
   for (Image i : images)
     i.displayImage();
   /* include frameCount on screen
   fill(100, 0, 100);
   textSize(30);
-  text(frameCount, 50, 50);
-  */
+  text(frameCount, 50, 50); */
 }
 
 class Image

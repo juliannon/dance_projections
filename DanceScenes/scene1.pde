@@ -122,6 +122,7 @@ class Particle
 
     if (position.y > height)
       alive = false;
+   
   }
 
   void push(PVector force) {
@@ -130,6 +131,27 @@ class Particle
 
 }
 
+void scene2setup()
+{
+  colorMode(RGB, 255);
+  colorMode(HSB, 100);
+  //creaate random position, random velocity, create new image
+  for (int i = 1; i < 6; i++)
+  {
+    PVector position = new PVector(random(0, 4*width/7), height*9/10);
+    PVector velocity = new PVector(0, random(-15,-5));
+    PImage img = loadImage("image"+i + "_25.png");
+    img.resize(700, 700);
+    images.add(new Image(position, velocity, img));
+  }
+
+}
+/*void drawScene2()
+{
+  background(0);
+  for (Image i : images)
+    i.displayImage();
+}*/
 /*void groundSnow() {
 
   for (int i = 0; i < 20; i++) {
